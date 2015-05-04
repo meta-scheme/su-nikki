@@ -495,18 +495,6 @@
         text-align:
           right;
       }
-      div.su-nikki-post-datetime {
-        margin-bottom:
-          0.5rem;
-      }
-      blockquote {
-        margin:
-          0.5rem;
-        padding:
-          0.5rem;
-        border-left:
-          2px solid {color:Text Color};
-      }
       div.link-information {
         background-color:
           {color:Link Information Background Color of Link Post};
@@ -524,6 +512,18 @@
           100%;
         text-align:
           center;
+      }
+      blockquote {
+        margin:
+          0.5rem;
+        padding:
+          0.5rem;
+        border-left:
+          2px solid {color:Text Color};
+      }
+      div.su-nikki-post-datetime {
+        margin-bottom:
+          0.5rem;
       }
       {CustomCSS}
     </style>
@@ -744,7 +744,7 @@
                   <div class="link-excerpt">{Excerpt}</div>
                 {/block:Excerpt}
                 {block:Author}
-                  <div class="link-author">{Author}</div>
+                  <div class="link-author">{lang:Authors}: {Author}</div>
                 {/block:Author}
                 {block:Thumbnail}<div class="link-thumbnail-wrapper"><img class="link-thumbnail" src="{Thumbnail}" alt="{Name}"/></div>{/block:Thumbnail}
               </div>
