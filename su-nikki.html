@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<!-- Tumblrテーマ「素日記」 製作：メタスキーマ -->
+<html>
+  <head>
+    {MobileAppHeaders}
+    <meta charset="utf-8"/>
+    <title>{Title}{block:SearchPage} ({lang:Search results for SearchQuery}){/block:SearchPage}{block:PermalinkPage}{block:PostSummary} — {PostSummary}{/block:PostSummary}{/block:PermalinkPage}</title>
+    {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
+    <meta name="image:Background Image" content=""/>
+    <meta name="color:Page Header Text Color"                         content="{TitleColor}"     />
+    <meta name="color:Page Header Background Color"                   content="{BackgroundColor}"/>
+    <meta name="color:Page Footer Text Color"                         content="{TitleColor}"     />
+    <meta name="color:Page Footer Background Color"                   content="{BackgroundColor}"/>
+    <meta name="color:Navigation Text Color"                          content="{TitleColor}"     />
+    <meta name="color:Navigation Background Color"                    content="{BackgroundColor}"/>
+    <meta name="color:All Posts Area Text Color"                      content="{TitleColor}"     />
+    <meta name="color:All Posts Area Background Color"                content="{BackgroundColor}"/>
+    <meta name="color:One Post Area Text Color"                       content="{TitleColor}"     />
+    <meta name="color:One Post Area Background Color"                 content="{BackgroundColor}"/>
+    <meta name="color:Link Information Background Color of Link Post" content="#eeeeee"/>
+    <meta name="select:One Post Area Border Style" content="none"   title="None"  />
+    <meta name="select:One Post Area Border Style" content="dotted" title="Dotted"/>
+    <meta name="select:One Post Area Border Style" content="dashed" title="Dashed"/>
+    <meta name="select:One Post Area Border Style" content="solid"  title="Solid" />
+    <meta name="select:One Post Area Border Style" content="double" title="Double"/>
+    <meta name="select:One Post Area Border Style" content="outset" title="Outset"/>
+    <meta name="select:One Post Area Border Style" content="inset"  title="Inset" />
+    <meta name="select:One Post Area Border Style" content="ridge"  title="Ridge" />
+    <meta name="select:One Post Area Border Style" content="groove" title="Groove"/>
+    <meta name="select:One Post Area Border Style" content="hidden" title="Hidden"/>
+    <meta name="if:Show Post Author Group Member" content="0"/>
+    <meta name="if:Show Group Members Icon" content="0"/>
+    <meta name="select:Page width" content="720px"  title="720px" />
+    <meta name="select:Page width" content="800px"  title="800px" />
+    <meta name="select:Page width" content="960px"  title="960px" />
+    <meta name="select:Page width" content="1024px" title="1024px"/>
+    <meta name="select:Page width" content="1280px" title="1280px"/>
+    <meta name="select:Page width" content="1600px" title="1600px"/>
+    <meta name="select:Page width" content="1920px" title="1920px"/>
+    <meta name="select:Page width" content="2048px" title="2048px"/>
+    <meta name="select:Page width" content="auto"   title="auto"  />
+    <meta name="if:Show Page Header Navigation" content="1"/>
+    <meta name="if:Show Page Footer Navigation" content="1"/>
+    <meta name="if:Show Home Navigation" content="0"/>
+    <meta name="if:Show Archive Navigation" content="1"/>
+    <meta name="if:Show Pagenation Navigation" content="1"/>
+    <meta name="if:Show Search Navigation" content="0"/>
+    <meta name="if:Show Following" content="0"/>
+    <meta name="if:Show Likes" content="0"/>
+    <meta name="if:Use Hui Font Fixed Pitch"        content="1"/>
+    <meta name="if:Use Hui Font Proportional Pitch" content="0"/>
+    <meta name="if:Use Noto Sans Japanese"          content="1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="{Favicon}"/>
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}"/>
+    {block:IfUseNotoSansJapanese}
+      <link href="http://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" type="text/css"/>
+    {/block:IfUseNotoSansJapanese}
+    <style>
+      {block:IfUseHuiFontFixedPitch}
+        @font-face{
+          font-family:
+            HuiFont;
+          src:
+            url("http://meta-scheme.jp/software/font/HuiFont29.woff") format("woff");
+          font-weight:
+            normal;
+          font-style:
+            normal;
+        }
+      {/block:IfUseHuiFontFixedPitch}
+      {block:IfUseHuiFontProportionalPitch}
+        @font-face{
+          font-family:
+            HuiFontP;
+          src:
+            url("http://meta-scheme.jp/software/font/HuiFontP29.woff") format("woff");
+          font-weight:
+            normal;
+          font-style:
+            normal;
+        }
+      {/block:IfUseHuiFontProportionalPitch}
+      html, body, * {
+        writing-mode:
+          horizontal-tb;
+        -ms-writing-mode:
+          lr-tb;
+        -webkit-writing-mode:
+          horizontal-tb;
+        -epub-writing-mode:
+          horizontal-tb;
+        text-orientation:
+          mixed;
+        -webkit-text-orientation:
+          mixed;
+        direction:
+          ltr;
+        font-family:
+          {block:IfUseHuiFontFixedPitch}
+            HuiFont,
+          {/block:IfUseHuiFontFixedPitch}
+          {block:IfUseHuiFontProportionalPitch}
+            HuiFontP,
+          {/block:IfUseHuiFontProportionalPitch}
+          {block:IfUseNotoSansJapanese}
+            'Noto Sans Japanese',
+          {/block:IfUseNotoSansJapanese}
+          {TitleFont}, "Helvetica Neue", HelveticaNeue, Arial, sans-serif;
+        box-sizing:
+          border-box;
+      }
+      body {
+        color:
+          {TitleColor};
+        background-color:
+          {BackgroundColor};
+        -webkit-text-size-adjust:
+          100%;
+        background-image:
+          url('{image:Background Image}');
+        margin-top:
+          2rem;
+        margin-bottom:
+          0.5rem;
+        margin-left:
+          0.5rem;
+        margin-right:
+          0.5rem;
+      }
+      header#page-header {
+        color:
+          {color:Page Header Text Color};
+        background-color:
+          {color:Page Header Background Color};
+      }
+      footer#page-footer {
+        color:
+          {color:Page Footer Text Color};
+        background-color:
+          {color:Page Footer Background Color};
+        text-align:
+          right;
+        font-size:
+          xx-small;
+      }
+      header#page-header, nav#page-header-nav,
+      footer#page-footer, nav#page-footer-nav{
+        text-align:
+          center;
+        margin-left:
+          auto;
+        margin-right:
+          auto;
+        font-size:
+          small;
+      }
+      form#header-search, form#footer-search {
+        margin:
+          0.5rem;
+      }
+      div.header-image, div.header-avatar {
+        overflow:
+          hidden;
+        text-align:
+          center;
+      }
+      div.header-image, div.header-avatar ,
+      img.header-image, img.header-avatar ,
+        a.header-image,   a.header-avatar {
+        border:
+          none;
+        text-decoration:
+          none;
+      }
+      div.header-image, img.header-image {
+        {block:NoStretchHeaderImage}
+          max-width:
+            100%;
+        {/block:NoStretchHeaderImage}
+        {block:StretchHeaderImage}
+          width:
+            100%;
+        {/block:StretchHeaderImage}
+      }
+      div.header-image {
+        margin-bottom:
+          0.5rem;
+      }
+      img.header-image {
+        max-height:
+          100%;
+      }
+      div.header-avatar {
+        width:
+          48px;
+        height:
+          48px;
+        margin-top:
+          0;
+        margin-bottom:
+          0;
+        margin-left:
+          auto;
+        margin-right:
+          auto;
+        padding:
+          0;
+      }
+      div.header-avatar.circle {
+        border-radius:
+          50%;
+      }
+      img.header-avatar, a.header-avatar {
+        margin:
+          0;
+        padding:
+          0;
+      }
+      h1.blog-title {
+        font-family:
+          {block:IfUseHuiFontFixedPitch}
+            HuiFont,
+          {/block:IfUseHuiFontFixedPitch}
+          {block:IfUseHuiFontProportionalPitch}
+            HuiFontP,
+          {/block:IfUseHuiFontProportionalPitch}
+          {block:IfUseNotoSansJapanese}
+            'Noto Sans Japanese',
+          {/block:IfUseNotoSansJapanese}
+          {TitleFont};
+        font-weight:
+          {TitleFontWeight};
+        font-size:
+          x-large;
+        margin:
+          0.5rem;
+      }
+      p.description {
+        font-size:
+          medium;
+        margin:
+          0.5rem;
+      }
+      footer.article-footer {
+        margin:
+          0.5rem;
+        text-align:
+          right;
+      }
+      div.colophon {
+        text-align:
+          right;
+      }
+      nav, nav * {
+        font-size:
+          small;
+      }
+      nav {
+        color:
+          {color:Navigation Text Color};
+        background-color:
+          {color:Navigation Background Color};
+        margin:
+          0.5rem;
+      }
+      span.nav-span {
+        display:
+          inline-block;
+      }
+      section#page {
+        max-width:
+          {select:Page width};
+        margin-left:
+          auto;
+        margin-right:
+          auto;
+      }
+      section#posts {
+        color:
+          {color:All Posts Area Text Color};
+        background-color:
+          {color:All Posts Area Background Color};
+      }
+      article.post {
+        color:
+          {color:One Post Area Text Color};
+        background-color:
+          {color:One Post Area Background Color};
+        margin:
+          0.5rem;
+        padding:
+          0.5rem;
+      }
+      article.post.border-style-dotted           ,
+      div.following.border-style-dotted          ,
+      div.likes.border-style-dotted              ,
+      div.likes.border-style-dotted li.like_post {
+        border:1px dotted;
+      }
+      article.post.border-style-dashed           ,
+      div.following.border-style-dashed          ,
+      div.likes.border-style-dashed              ,
+      div.likes.border-style-dashed li.like_post {
+        border:1px dashed;
+      }
+      article.post.border-style-solid           ,
+      div.following.border-style-solid          ,
+      div.likes.border-style-solid              ,
+      div.likes.border-style-solid li.like_post {
+        border:1px solid;
+      }
+      article.post.border-style-double           ,
+      div.following.border-style-double          ,
+      div.likes.border-style-double              ,
+      div.likes.border-style-double li.like_post {
+        border:5px double;
+      }
+      article.post.border-style-outset           ,
+      div.following.border-style-outset          ,
+      div.likes.border-style-outset              ,
+      div.likes.border-style-outset li.like_post {
+        border:5px outset;
+      }
+      article.post.border-style-inset           ,
+      div.following.border-style-inset          ,
+      div.likes.border-style-inset              ,
+      div.likes.border-style-inset li.like_post {
+        border:5px inset;
+      }
+      article.post.border-style-ridge           ,
+      div.following.border-style-ridge          ,
+      div.likes.border-style-ridge              ,
+      div.likes.border-style-ridge li.like_post {
+        border:5px ridge;
+      }
+      article.post.border-style-groove           ,
+      div.following.border-style-groove          ,
+      div.likes.border-style-groove              ,
+      div.likes.border-style-groove li.like_post {
+        border:5px groove;
+      }
+      article.post.border-style-hidden           ,
+      div.following.border-style-hidden          ,
+      div.likes.border-style-hidden              ,
+      div.likes.border-style-hidden li.like_post {
+        border:hidden;
+      }
+      article.post.border-style-none           ,
+      div.following.border-style-none          ,
+      div.likes.border-style-none              ,
+      div.likes.border-style-none li.like_post {
+        border:none;
+      }
+      div.postnotes, div.postnotes * {
+        text-align:
+          left;
+      }
+      div.submitter-information {
+      }
+      div.question {
+        border:
+          1px solid {color:One Post Area Text Color};
+      }
+      div.reblog-control, div.like-control {
+        display:
+          inline-block;
+        margin:
+          0;
+        padding:
+          0;
+        text-align:
+          center;
+        vertical-align:
+          text-top;
+      }
+      div.html_photoset {
+        text-align:
+          center;
+      }
+      div.embed-wrapper, div.tumblr_video_container {
+        max-width:
+          100%;
+        text-align:
+          center;
+        margin-left:
+          auto;
+        margin-right:
+          auto;
+      }
+      div.embed-wrapper   iframe#youtube_iframe,
+      div.embed-wrapper   iframe.tumblr_audio_player,
+      div.embed-wrapper   iframe.tumblr_video_iframe,
+      div.embed-wrapper > iframe {
+        max-width:
+          100%;
+      }
+      img.photo-content {
+        width:
+          100%;
+        text-align:
+          center;
+      }
+      span.inline-block {
+        display:
+          inline-block;
+      }
+      .text-orientation-upright {
+        text-orientation:
+          upright;
+        -webkit-text-orientation:
+          upright;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        color:
+          {TitleColor};
+      }
+      a {
+        color:
+          {AccentColor};
+        text-decoration:
+          none;
+      }
+      div.following      ,
+      div.likes          {
+        width:
+          auto;
+      }
+      div.following      ,
+      div.likes          ,
+      div.following-label,
+      div.following-list ,
+      div.likes-label    ,
+      div.likes-list     {
+        padding:
+          0;
+      }
+      div.following      ,
+      div.likes          ,
+      div.following-list ,
+      div.likes-list     {
+        margin:
+          0.5rem;
+      }
+      div.following-label,
+      div.likes-label    {
+        margin:
+          0;
+      }
+      ul#likes {
+        list-style-type:
+          none;
+        text-align:
+          left;
+        margin:
+          0;
+        padding:
+          0;
+      }
+      li.like_post {
+        margin:
+          0.5rem;
+        width:
+          auto;
+      }
+      li.like_post img {
+        max-width: 100%;
+      }
+      li.like_post blockquote {
+        margin:
+          0.5rem;
+        padding:
+          0.5rem;
+        border-left:
+          1px solid {color:Text Color};
+      }
+      li.like_post ol, li.like_post ul {
+      }
+      li.like_post .like_link a {
+        font-weight:
+          bold;
+      }
+      li.like_post .like_title {
+        font-weight:
+          bold;
+      }
+      li.like_post .post_info_top {
+        display:
+          none !important;
+      }
+      li.like_post .post_info_bottom {
+        display:
+          block !important;
+        text-align:
+          right;
+      }
+      div.su-nikki-post-datetime {
+        margin-bottom:
+          0.5rem;
+      }
+      blockquote {
+        margin:
+          0.5rem;
+        padding:
+          0.5rem;
+        border-left:
+          2px solid {color:Text Color};
+      }
+      div.link-information {
+        background-color:
+          {color:Link Information Background Color of Link Post};
+      }
+      div.link-thumbnail-wrapper {
+        margin-right:
+          auto;
+        margin-left:
+          auto;
+        text-align:
+          center;
+      }
+      img.link-thumbnail {
+        max-width:
+          100%;
+        text-align:
+          center;
+      }
+      {CustomCSS}
+    </style>
+  </head>
+
+  <body>
+    <section id="page">
+      {block:ShowHeaderImage}
+        <div class="header-image">
+          <a class="header-image" href="{BlogURL}" title="{Title}" {Target}><img class="header-image" src="{HeaderImage}" title="{Title}" alt="{Title}"/></a>
+        </div>
+      {/block:ShowHeaderImage}
+      {block:HideHeaderImage}
+      {/block:HideHeaderImage}
+
+      {block:ShowAvatar}
+        <div class="header-avatar {AvatarShape}">
+          <a class="header-avatar {AvatarShape}" href="{BlogURL}" title="{Title}" {Target}><img class="header-avatar {AvatarShape}" src="{PortraitURL-48}" title="{Title}" alt="{Title}"/></a>
+        </div>
+      {/block:ShowAvatar}
+      {block:HideAvatar}
+      {/block:HideAvatar}
+
+      <header id="page-header">
+        {block:ShowTitle}
+          <h1 class="blog-title">
+            <a href="{BlogURL}" {Target}>{Title}</a>
+          </h1>
+        {/block:ShowTitle}
+        {block:HideTitle}
+        {/block:HideTitle}
+
+        {block:ShowDescription}
+          <p class="description">{Description}</p>
+        {/block:ShowDescription}
+        {block:HideDescription}
+        {/block:HideDescription}
+
+        {block:IfShowPageHeaderNavigation}
+          <nav id="page-header-nav">
+            {block:IfShowSearchNavigation}
+              <form id="header-search" action="/search" method="get">
+                <input type="text" name="q" value="{SearchQuery}"/>
+                <input type="submit" value="{lang:Search}"/>
+              </form>
+            {/block:IfShowSearchNavigation}
+
+            {block:ifShowHomeNavigation}
+              <span class="nav-span home-nav">
+                <a href="/">{lang:Home}</a> 
+              </span>
+            {/block:ifShowHomeNavigation}
+
+            {block:HasPages}
+              <span class="nav-span pages-nav">
+                {block:Pages}
+                  <a href="{URL}">{Label}</a> 
+                {/block:Pages}
+              </span>
+            {/block:HasPages}
+
+            <span class="nav-span misc-nav">
+              {block:ifShowArchiveNavigation}
+                <a href="/archive">{lang:Archive}</a> 
+              {/block:ifShowArchiveNavigation}
+              {block:SubmissionsEnabled}
+                <a href="/submit" class="submit">{SubmitLabel}</a> 
+              {/block:SubmissionsEnabled}
+              {block:AskEnabled}
+                <a href="/ask" class="ask">{AskLabel}</a> 
+              {/block:AskEnabled}
+            </span>
+
+            {block:IfShowPagenationNavigation}
+              {block:Pagination}
+                <span class="nav-span pagenation-nav">
+                  {block:PreviousPage}
+                    <a href="{PreviousPage}"> {lang:Previous page} </a> 
+                  {/block:PreviousPage}
+
+                  {block:JumpPagination length="5"}
+                    {block:CurrentPage}
+                      <span class="text-orientation-upright"> {PageNumber} </span> 
+                    {/block:CurrentPage}
+                    {block:JumpPage}
+                      <span class="text-orientation-upright"><a href="{URL}"> {PageNumber} </a></span> 
+                    {/block:JumpPage}
+                  {/block:JumpPagination}
+
+                  {block:NextPage}
+                    <a href="{NextPage}"> {lang:Next page} </a> 
+                  {/block:NextPage}
+                </span>
+                <span class="nav-span text-orientation-upright"> {lang:Page CurrentPage of TotalPages} </span> 
+              {/block:Pagination}
+
+              {block:PermalinkPagination}
+                <span class="nav-span permalink-pagenation-nav">
+                  {block:PreviousPost}
+                    <a href="{PreviousPost}"> {lang:Previous post} </a> 
+                  {/block:PreviousPost}
+
+                  {block:NextPost}
+                    <a href="{NextPost}"> {lang:Next post} </a> 
+                  {/block:NextPost}
+                </span>
+              {/block:PermalinkPagination}
+
+              {block:DayPage}
+                {block:DayPagination}
+                  <span class="nav-span day-pagenation-nav">
+                    {block:PreviousDayPage}
+                      <a href="{PreviousDayPage}"> {lang:Previous day} <a> 
+                    {/block:PreviousDayPage}
+
+                    {block:NextDayPage}
+                      <a href="{NextDayPage}"> {lang:Next day} <a> 
+                    {/block:NextDayPage}
+                  </span>
+                {/block:DayPagination}
+              {/block:DayPage}
+            {/block:IfShowPagenationNavigation}
+          </nav>
+        {/block:IfShowPageHeaderNavigation}
+
+        {block:SearchPage}
+          <div class="search-header">
+            <h2 class="search-title">
+              {lang:SearchResultCount results for SearchQuery}
+              {block:NoSearchResults}{lang:Sorry no search results found}{/block:NoSearchResults}
+            </h2>
+          </div>
+        {/block:SearchPage}
+
+        {block:TagPage}
+          <h2>{lang:Posts tagged Tag 3}</h2>
+        {/block:TagPage}
+      </header>
+
+      <section id="posts">
+        {block:Posts}
+          <article class="post border-style-{select:One Post Area Border Style} {block:Text}text {/block:Text}{block:Photoset}photoset {/block:Photoset}{block:Photo}photo {/block:Photo}{block:RebloggedFrom}reblogged {/block:RebloggedFrom}{block:Quote}quote {/block:Quote}{block:Link}link {/block:Link}{block:Chat}chat {/block:Chat}{block:Audio}audio {/block:Audio}{block:Video}video {/block:Video}{block:Answer}answer {/block:Answer}{block:Date}not-page post-{PostID}{/block:Date} {block:PermalinkPage} active exposed{/block:PermalinkPage}" {block:Date}data-post-id="post_{PostID}"{/block:Date}>
+            {block:Date}
+              <div class="su-nikki-post-datetime"><a href="{Permalink}" class="share-item permalink"> {Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {DayOfWeek} {24HourWithZero}:{Minutes}:{Seconds} </a></div> 
+            {/block:Date}
+
+            {block:Submission}
+              <div class="submitter-information">
+                <img class="submitter-avatar" src="{SubmitterPortraitURL-16}"/> {lang:Posted by PostAuthorName 2}
+              </div>
+            {/block:Submission}
+
+            {block:Text}
+              {block:Title}
+                <h3><a href="{Permalink}">{Title}</a></h3>
+              {/block:Title}
+              {Body}
+            {/block:Text}
+
+            {block:Photo}
+              {LinkOpenTag}
+                <img class="photo-content" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+              {LinkCloseTag}
+              {block:Caption}
+                <div class="caption">{Caption}</div>
+              {/block:Caption}
+              {block:PermalinkPage}
+                {block:HighRes}
+                   <div><a href="{PhotoURL-HighRes}">{lang:View high resolution}</a></div>
+                {/block:HighRes}
+              {/block:PermalinkPage}
+            {/block:Photo}
+
+            {block:Photoset}
+              {block:Photos}
+                {LinkOpenTag}
+                  <img class="photo-content" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+                {LinkCloseTag}
+                {block:Caption}
+                  <div class="caption">{Caption}</div>
+                {/block:Caption}
+                {block:PermalinkPage}
+                  {block:HighRes}
+                     <div><a href="{PhotoURL-HighRes}">{lang:View high resolution}</a></div>
+                  {/block:HighRes}
+                {/block:PermalinkPage}
+              {/block:Photos}
+
+              {block:Caption}
+                <div class="caption">{Caption}</div>
+              {/block:Caption}
+            {/block:Photoset}
+
+            {block:Panorama}
+              {LinkOpenTag}
+                <img class="photo-content" src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+              {LinkCloseTag}
+
+              {block:Caption}
+                <div class="caption">{Caption}</div>
+              {/block:Caption}
+            {/block:Panorama}
+
+            {block:Quote}
+              <h3>"{Quote}"</h3>
+              {block:Source}
+                <div class="source">&mdash;&nbsp;{Source}</div>
+              {/block:Source}
+            {/block:Quote}
+
+            {block:Link}
+              <div class="link-information">
+                {block:Host}
+                  <div class="link-host"> {Host} </div> 
+                {/block:Host}
+                <h3><a href="{URL}" class="link" {Target}>{Name}</a></h3>
+                {block:Excerpt}
+                  <div class="link-excerpt">{Excerpt}</div>
+                {/block:Excerpt}
+                {block:Author}
+                  <div class="link-author">{Author}</div>
+                {/block:Author}
+                {block:Thumbnail}<div class="link-thumbnail-wrapper"><img class="link-thumbnail" src="{Thumbnail}" alt="{Name}"/></div>{/block:Thumbnail}
+              </div>
+
+              {block:Description}
+                <div class="link-description">{Description}</div>
+              {/block:Description}
+            {/block:Link}
+
+            {block:Chat}
+              {block:Title}
+                <h3><a href="{Permalink}">{Title}</a></h3>
+              {/block:Title}
+
+              <ul class="chat">
+                {block:Lines}
+                  <li class="{Alt} user_{UserNumber}">
+                      {block:Label}
+                        <span class="label">{Label}</span>
+                      {/block:Label}
+                      &nbsp;
+                      {Line}
+                  </li>
+                {/block:Lines}
+              </ul>
+            {/block:Chat}
+
+            {block:Video}
+              <div class="embed-wrapper">
+                {Video-700}
+              </div>
+              {block:Caption}
+                <div class="caption">{Caption}</div>
+              {/block:Caption}
+            {/block:Video}
+
+            {block:Audio}
+              {block:AudioEmbed}
+                <div class="embed-wrapper">
+                  {AudioEmbed-640}
+                </div>
+              {/block:AudioEmbed}
+
+              {block:Caption}
+                <div class="caption">{Caption}</div>
+              {/block:Caption}
+
+              {block:PermalinkPage}
+                {block:TrackName}Track Name: {TrackName}<br/>{/block:TrackName}
+                {block:Artist}Artist: {Artist}<br/>{/block:Artist}
+                {block:Album}Album: {Album}<br/>{/block:Album}
+                {block:ExternalAudio}<a href="{ExternalAudioURL}">{lang:Download this track}</a><br/>{/block:ExternalAudio}
+              {/block:PermalinkPage}
+            {/block:Audio}
+
+            {block:Answer}
+              <div class="question">
+                <div class="asker">
+                  <img class="asker-avatar" src="{AskerPortraitURL-16}" alt=""/> {lang:Asker asked 2}
+                </div>
+                <div class="asker-question">{Question}</div>
+              </div>
+
+              {block:Answerer}
+                <div class="answer">
+                  <div class="answerer">
+                    <img class="answerer-avatar" src="{AnswererPortraitURL-16}" alt="">
+                    {Answerer}
+                  </div>
+                  <div class="answerer-answer">{Answer}</div>
+                </div>
+              {/block:Answerer}
+
+              <div class="replies">
+                  {Replies}
+              </div>
+            {/block:Answer}
+
+            <footer class="article-footer">
+              {block:NoteCount}
+                <a href="{Permalink}#PostNotes"><span class="text-orientation-upright">{NoteCountWithLabel}</span></a> 
+              {/block:NoteCount}
+
+              <span class="inline-block"><a href="{Permalink}" class="share-item permalink">{lang:Permalink}</a></span> 
+
+              <div class="control reblog-control">{ReblogButton}</div>
+
+              <div class="control like-control">{LikeButton}</div>
+
+              {block:HasTags}
+                <div>
+                {block:Tags}
+                  <a href="{TagURL}">#{Tag}</a> 
+                {/block:Tags}
+                </div>
+              {/block:HasTags}
+
+              {block:GroupMembers}
+                {block:IfShowPostAuthorGroupMember}
+                  <div class="post-author">
+                    {lang:By PostAuthorName 2}
+                  </div>
+                {/block:IfShowPostAuthorGroupMember}
+              {/block:GroupMembers} 
+
+              {block:PostNotes}
+                <div class="postnotes">
+                {block:ContentSource}
+                  <div>
+                  <a href="{SourceURL}">
+                  {lang:Source}:
+                  {block:SourceLogo}
+                      <img src="{BlackLogoURL}" width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
+                  {/block:SourceLogo}
+                  {block:NoSourceLogo}
+                      {SourceLink}
+                  {/block:NoSourceLogo}
+                  </a>
+                  </div>
+                {/block:ContentSource}
+
+                {block:RebloggedFrom}
+                  <div>{lang:Originally from ReblogRootTitle 2}</div>
+                {/block:RebloggedFrom}
+
+                <a id="PostNotes"/>
+                {PostNotes}
+                </div>
+              {/block:PostNotes}
+            </footer>
+          </article>
+        {/block:Posts}
+      </section>
+
+      <footer id="page-footer">
+        {block:Following}
+          {block:IfShowFollowing}
+            <div class="following border-style-{select:One Post Area Border Style}">
+              <div class="following-label">{lang:Following}</div>
+              <div class="following-list">
+                {block:Followed}
+                  <span class="followed">
+                    <a href="{FollowedURL}" title="{FollowedTitle}"><img src="{FollowedPortraitURL-24}" title="{FollowedTitle}" alt="{FollowedTitle}"/></a>
+                  </span>
+                {/block:Followed}
+              </div>
+            </div>
+          {/block:IfShowFollowing}
+        {/block:Following}
+
+        {block:Likes}
+          {block:IfShowLikes}
+            <div class="likes border-style-{select:One Post Area Border Style}">
+              <div class="likes-label">{lang:Liked posts}</div>
+              <div class="likes-list">
+                {Likes limit="10" width="auto" summarize="250"}
+              </div>
+            </div>
+          {/block:IfShowLikes}
+        {/block:Likes}
+
+        {block:IfShowPageFooterNavigation}
+          <nav id="page-footer-nav">
+            {block:IfShowSearchNavigation}
+              <form id="footer-search" action="/search" method="get">
+                <input type="text" name="q" value="{SearchQuery}"/>
+                <input type="submit" value="{lang:Search}"/>
+              </form>
+            {/block:IfShowSearchNavigation}
+
+            {block:ifShowHomeNavigation}
+              <span class="nav-span home-nav">
+                <a href="/">{lang:Home}</a> 
+              </span>
+            {/block:ifShowHomeNavigation}
+
+            {block:HasPages}
+              <span class="nav-span pages-nav">
+                {block:Pages}
+                  <a href="{URL}">{Label}</a> 
+                {/block:Pages}
+              </span>
+            {/block:HasPages}
+
+            <span class="nav-span misc-nav">
+              {block:ifShowArchiveNavigation}
+                <a href="/archive"> {lang:Archive} </a> 
+              {/block:ifShowArchiveNavigation}
+              {block:SubmissionsEnabled}
+                <a href="/submit" class="submit"> {SubmitLabel} </a> 
+              {/block:SubmissionsEnabled}
+              {block:AskEnabled}
+                <a href="/ask" class="ask"> {AskLabel} </a> 
+              {/block:AskEnabled}
+            </span>
+
+            {block:IfShowPagenationNavigation}
+              {block:Pagination}
+                <span class="nav-span pagenation-nav">
+                  {block:PreviousPage}
+                    <a href="{PreviousPage}"> {lang:Previous page} </a> 
+                  {/block:PreviousPage}
+
+                  {block:JumpPagination length="5"}
+                    {block:CurrentPage}
+                      <span class="text-orientation-upright"> {PageNumber} </span> 
+                    {/block:CurrentPage}
+                    {block:JumpPage}
+                      <span class="text-orientation-upright"><a href="{URL}"> {PageNumber} </a></span> 
+                    {/block:JumpPage}
+                  {/block:JumpPagination}
+
+                  {block:NextPage}
+                    <a href="{NextPage}"> {lang:Next page} </a> 
+                  {/block:NextPage}
+                </span>
+                <span class="nav-span text-orientation-upright"> {lang:Page CurrentPage of TotalPages} </span> 
+              {/block:Pagination}
+
+              {block:PermalinkPagination}
+                <span class="nav-span permalink-pagenation-nav">
+                  {block:PreviousPost}
+                    <a href="{PreviousPost}"> {lang:Previous post} </a> 
+                  {/block:PreviousPost}
+
+                  {block:NextPost}
+                    <a href="{NextPost}"> {lang:Next post} </a> 
+                  {/block:NextPost}
+                </span>
+              {/block:PermalinkPagination}
+
+              {block:DayPage}
+                {block:DayPagination}
+                  <span class="nav-span day-pagenation-nav">
+                    {block:PreviousDayPage}
+                      <a href="{PreviousDayPage}"> {lang:Previous day} <a> 
+                    {/block:PreviousDayPage}
+
+                    {block:NextDayPage}
+                      <a href="{NextDayPage}"> {lang:Next day} <a> 
+                    {/block:NextDayPage}
+                  </span>
+                {/block:DayPagination}
+              {/block:DayPage}
+            {/block:IfShowPagenationNavigation}
+          </nav>
+        {/block:IfShowPageFooterNavigation}
+
+        {block:GroupMembers}
+          {block:IfShowGroupMembersIcon}
+            <div class="group-members">
+              <span>{lang:Members} </span>
+              {block:GroupMember}
+                <span class="group-member">
+                  <a href="{GroupMemberURL}" title="{GroupMemberTitle}"><img src="{GroupMemberPortraitURL-16}" title="{GroupMemberName}" alt="{GroupMemberName}"/></a>
+                </span>
+              {/block:GroupMember}
+            </div>
+          {/block:IfShowGroupMembersIcon}
+        {/block:GroupMembers}
+
+        <div class="colophon">
+          <span class="powered-by-tumblr">{lang:Powered by Tumblr 2}</span>
+        </div>
+      </footer>
+    </section>
+  </body>
+</html>
