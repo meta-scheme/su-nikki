@@ -361,9 +361,13 @@
       }
       div.submitter-information {
       }
-      div.question {
+      div.question, div.answer {
         border:
           1px solid {color:One Post Area Text Color};
+        margin-top:
+          0.5rem;
+        margin-bottom:
+          0.5rem;
       }
       div.reblog-control, div.like-control {
         display:
@@ -397,6 +401,12 @@
       div.embed-wrapper > iframe {
         max-width:
           100%;
+      }
+      article.post > iframe.twitter-tweet.twitter-tweet-rendered {
+        margin-left:
+          auto!important;
+        margin-right:
+          auto!important;
       }
       img.photo-content {
         width:
@@ -811,8 +821,7 @@
               {block:Answerer}
                 <div class="answer">
                   <div class="answerer">
-                    <img class="answerer-avatar" src="{AnswererPortraitURL-16}" alt="">
-                    {Answerer}
+                    <img class="answerer-avatar" src="{AnswererPortraitURL-16}" alt=""> {Answerer}
                   </div>
                   <div class="answerer-answer">{Answer}</div>
                 </div>
