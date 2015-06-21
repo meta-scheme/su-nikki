@@ -61,6 +61,10 @@
     <meta name="if:Show Audio Caption in Permalink Page"           content="1"/>
     <meta name="if:Show Audio Track Information in Index Page"     content="0"/>
     <meta name="if:Show Audio Track Information in Permalink Page" content="1"/>
+    <meta name="if:Show Post DateTime in Index Page"               content="1"/>
+    <meta name="if:Show Post DateTime in Permalink Page"           content="1"/>
+    <meta name="if:Show Article Footer in Index Page"              content="1"/>
+    <meta name="if:Show Article Footer in Permalink Page"          content="1"/>
     <meta name="select:Lang Attribute of HTML Element" content=''                title="None"                     />
     <meta name="select:Lang Attribute of HTML Element" content=' lang="ab"'      title="Abkhazian"                />
     <meta name="select:Lang Attribute of HTML Element" content=' lang="aa"'      title="Afar"                     />
@@ -1302,7 +1306,16 @@
         {block:Posts}
           <article class="post border-style-{select:One Post Area Border Style} {block:Text}text {/block:Text}{block:Photoset}photoset {/block:Photoset}{block:Photo}photo {/block:Photo}{block:RebloggedFrom}reblogged {/block:RebloggedFrom}{block:Quote}quote {/block:Quote}{block:Link}link {/block:Link}{block:Chat}chat {/block:Chat}{block:Audio}audio {/block:Audio}{block:Video}video {/block:Video}{block:Answer}answer {/block:Answer}{block:Date}not-page post-{PostID}{/block:Date} {block:PermalinkPage} active exposed{/block:PermalinkPage}" {block:Date}data-post-id="post_{PostID}"{/block:Date}>
             {block:Date}
-              <div class="su-nikki-post-datetime"><a href="{Permalink}" class="share-item permalink"> {Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {DayOfWeek} {24HourWithZero}:{Minutes}:{Seconds} </a></div> 
+              {block:IndexPage}
+                {block:IfShowPostDateTimeInIndexPage}
+                  <div class="su-nikki-post-datetime"><a href="{Permalink}" class="share-item permalink"> {Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {DayOfWeek} {24HourWithZero}:{Minutes}:{Seconds} </a></div> 
+                {/block:IfShowPostDateTimeInIndexPage}
+              {/block:IndexPage}
+              {block:PermalinkPage}
+                {block:IfShowPostDateTimeInPermaLinkPage}
+                  <div class="su-nikki-post-datetime"><a href="{Permalink}" class="share-item permalink"> {Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {DayOfWeek} {24HourWithZero}:{Minutes}:{Seconds} </a></div> 
+                {/block:IfShowPostDateTimeInPermaLinkPage}
+              {/block:PermalinkPage}
             {/block:Date}
 
             {block:Submission}
@@ -1619,58 +1632,118 @@
               </div>
             {/block:Answer}
 
-            <footer class="article-footer">
-              {block:NoteCount}
-                <a href="{Permalink}#PostNotes"><span class="text-orientation-upright">{NoteCountWithLabel}</span></a> 
-              {/block:NoteCount}
+            {block:IndexPage}
+              {block:IfShowArticleFooterInIndexPage}
+                <footer class="article-footer">
+                  {block:NoteCount}
+                    <a href="{Permalink}#PostNotes"><span class="text-orientation-upright">{NoteCountWithLabel}</span></a> 
+                  {/block:NoteCount}
 
-              <span class="inline-block"><a href="{Permalink}" class="share-item permalink">{lang:Permalink}</a></span> 
+                  <span class="inline-block"><a href="{Permalink}" class="share-item permalink">{lang:Permalink}</a></span> 
 
-              <div class="control reblog-control">{ReblogButton}</div>
+                  <div class="control reblog-control">{ReblogButton}</div>
 
-              <div class="control like-control">{LikeButton}</div>
+                  <div class="control like-control">{LikeButton}</div>
 
-              {block:HasTags}
-                <div>
-                {block:Tags}
-                  <a href="{TagURL}">#{Tag}</a> 
-                {/block:Tags}
-                </div>
-              {/block:HasTags}
+                  {block:HasTags}
+                    <div>
+                    {block:Tags}
+                      <a href="{TagURL}">#{Tag}</a> 
+                    {/block:Tags}
+                    </div>
+                  {/block:HasTags}
+    
+                  {block:GroupMembers}
+                    {block:IfShowPostAuthorGroupMember}
+                      <div class="post-author">
+                        {lang:By PostAuthorName 2}
+                      </div>
+                    {/block:IfShowPostAuthorGroupMember}
+                  {/block:GroupMembers} 
+    
+                  {block:PostNotes}
+                    <div class="postnotes">
+                    {block:ContentSource}
+                      <div>
+                      <a href="{SourceURL}">
+                      {lang:Source}:
+                      {block:SourceLogo}
+                          <img src="{BlackLogoURL}" width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
+                      {/block:SourceLogo}
+                      {block:NoSourceLogo}
+                          {SourceLink}
+                      {/block:NoSourceLogo}
+                      </a>
+                      </div>
+                    {/block:ContentSource}
+    
+                    {block:RebloggedFrom}
+                      <div>{lang:Originally from ReblogRootTitle 2}</div>
+                    {/block:RebloggedFrom}
+    
+                    <a id="PostNotes"/>
+                    {PostNotes}
+                    </div>
+                  {/block:PostNotes}
+                </footer>
+              {/block:IfShowArticleFooterInIndexPage}
+            {/block:IndexPage}
+            {block:PermalinkPage}
+              {block:IfShowArticleFooterInPermalinkPage}
+                <footer class="article-footer">
+                  {block:NoteCount}
+                    <a href="{Permalink}#PostNotes"><span class="text-orientation-upright">{NoteCountWithLabel}</span></a> 
+                  {/block:NoteCount}
 
-              {block:GroupMembers}
-                {block:IfShowPostAuthorGroupMember}
-                  <div class="post-author">
-                    {lang:By PostAuthorName 2}
-                  </div>
-                {/block:IfShowPostAuthorGroupMember}
-              {/block:GroupMembers} 
+                  <span class="inline-block"><a href="{Permalink}" class="share-item permalink">{lang:Permalink}</a></span> 
 
-              {block:PostNotes}
-                <div class="postnotes">
-                {block:ContentSource}
-                  <div>
-                  <a href="{SourceURL}">
-                  {lang:Source}:
-                  {block:SourceLogo}
-                      <img src="{BlackLogoURL}" width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
-                  {/block:SourceLogo}
-                  {block:NoSourceLogo}
-                      {SourceLink}
-                  {/block:NoSourceLogo}
-                  </a>
-                  </div>
-                {/block:ContentSource}
+                  <div class="control reblog-control">{ReblogButton}</div>
 
-                {block:RebloggedFrom}
-                  <div>{lang:Originally from ReblogRootTitle 2}</div>
-                {/block:RebloggedFrom}
+                  <div class="control like-control">{LikeButton}</div>
 
-                <a id="PostNotes"/>
-                {PostNotes}
-                </div>
-              {/block:PostNotes}
-            </footer>
+                  {block:HasTags}
+                    <div>
+                    {block:Tags}
+                      <a href="{TagURL}">#{Tag}</a> 
+                    {/block:Tags}
+                    </div>
+                  {/block:HasTags}
+    
+                  {block:GroupMembers}
+                    {block:IfShowPostAuthorGroupMember}
+                      <div class="post-author">
+                        {lang:By PostAuthorName 2}
+                      </div>
+                    {/block:IfShowPostAuthorGroupMember}
+                  {/block:GroupMembers} 
+    
+                  {block:PostNotes}
+                    <div class="postnotes">
+                    {block:ContentSource}
+                      <div>
+                      <a href="{SourceURL}">
+                      {lang:Source}:
+                      {block:SourceLogo}
+                          <img src="{BlackLogoURL}" width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
+                      {/block:SourceLogo}
+                      {block:NoSourceLogo}
+                          {SourceLink}
+                      {/block:NoSourceLogo}
+                      </a>
+                      </div>
+                    {/block:ContentSource}
+    
+                    {block:RebloggedFrom}
+                      <div>{lang:Originally from ReblogRootTitle 2}</div>
+                    {/block:RebloggedFrom}
+    
+                    <a id="PostNotes"/>
+                    {PostNotes}
+                    </div>
+                  {/block:PostNotes}
+                </footer>
+              {/block:IfShowArticleFooterInPermalinkPage}
+            {/block:PermalinkPage}
           </article>
         {/block:Posts}
       </section>
